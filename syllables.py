@@ -118,12 +118,6 @@ class syllable:
 
 
 
-
-
-
-
-
-
 window = Tk()
 s = syllable(window)
 window.title('Syllable Counter')
