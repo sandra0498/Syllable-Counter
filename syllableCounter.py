@@ -1,22 +1,31 @@
 vowels = ['a', 'e', 'i', 'o', 'u', 'y']
 twoVowelSounds = ['ae', 'ee', 'oa', 'oo', 'ou', 'oi', 'ow', 'aw', 'au']
+
+
 # this list consists of dipthongs
 # >> dipthong - a union of two vowels pronounced in one syllable
 
 def countVowels(question):
     amountofvowels = 0
-    for letter in question:
-        if letter in vowels:
-            amountofvowels += 1
+    try:
+        if not question.isalpha():
+            raise TypeError('Insert alphabet only!')
+        else:
+            for letter in question:
+                if letter in vowels:
+                    amountofvowels += 1
 
-    FirstRule(amountofvowels, question)
-    # print('this is the amount of vowels ', amountofvowels)
+
+            FirstRule(amountofvowels, question)
+            # print('this is the amount of vowels ', amountofvowels)
+    except TypeError as te:
+        print(te)
 
 
 def FirstRule(num, word):  # passing in the num of vowels and the word itself as arguments
-    print('Enter this method ')
-    print('This is the word argument:', word)
-    print('This is the int argument:', num)
+    # print('Enter this method ')
+    # print('This is the word argument:', word)
+    # print('This is the int argument:', num)
     word = word.lower()
 
     # print('This is the new casing of the same word ', word)
@@ -71,17 +80,17 @@ def thirdRule(num, word):
 
         if 'es' in word:  # checks if substring is in the string
             substrIndex = word.rfind('es')  # gets the index of the rightmost side
-            # print("index of 'es' is ", substrIndex)
+            print("index of 'es' is ", substrIndex)
             if substrIndex == len(word) - 2:
                 # ^^ checks if the substring is in the end
-                # print('goes into this conditional')
+                print('goes into this conditional')
 
                 for i in range(substrIndex - 1, substrIndex - 4, -1):
                     # ^^ checks three spaces before the substring
 
                     if word[i] in vowels:  # if the char is a vowel
                         num -= 1  # >> decrements the vowel count
-    # print('The count after this rule is: ', num)
+    print('The count after this rule is: ', num)
 
     lastRule(num, word)
 
