@@ -27,20 +27,26 @@ class syllable:
             tkinter.messagebox.showerror('Error', 'Alphabet only!')
         else:
             if len(self.e2.get()) == 0:
-                count = 0
-                word = self.e1.get()
-                word = word.lower()
-                for letter in word:
-                    if letter in vowels:
-                        count += 1  # determine if the word has vowels
 
-                first = count - self.FirstRule(count, word)
-                second = count - self.SecondRule(count, word)
-                third = count - self.thirdRule(count, word)
-                last = count - self.lastRule(count, word)
+                if len(self.e1.get()) == 1:
+                    total = 1
+                    self.e2.insert(END, str(total))
 
-                total = count - (first + second + third + last)
-                self.e2.insert(END, str(total))
+                else:
+                    count = 0
+                    word = self.e1.get()
+                    word = word.lower()
+                    for letter in word:
+                        if letter in vowels:
+                            count += 1  # determine if the word has vowels
+
+                    first = count - self.FirstRule(count, word)
+                    second = count - self.SecondRule(count, word)
+                    third = count - self.thirdRule(count, word)
+                    last = count - self.lastRule(count, word)
+
+                    total = count - (first + second + third + last)
+                    self.e2.insert(END, str(total))
 
             else:
                 self.e2.delete(0, END)
