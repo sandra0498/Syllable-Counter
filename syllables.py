@@ -28,11 +28,11 @@ class syllable:
         else:
             if len(self.e2.get()) == 0:
 
-                if len(self.e1.get()) == 1:
+                if len(self.e1.get()) == 1:  # if the entry is at least one letter 
                     total = 1
                     self.e2.insert(END, str(total))
 
-                else:
+                else:  # if the entry is longer than one letter 
                     count = 0
                     word = self.e1.get()
                     word = word.lower()
@@ -122,12 +122,6 @@ class syllable:
             if sound in word:  # checking if the element is in the word
                 count -= 1
         return count
-
-
-
-
-
-
 
 
 
