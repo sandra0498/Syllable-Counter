@@ -1,4 +1,6 @@
 from tkinter import *
+import tkinter.messagebox
+
 
 vowels = ['a', 'e', 'i', 'o', 'u', 'y']  # with an exception of 'y'
 twoVowelSounds = ['ae', 'ee', 'oa', 'oo', 'ou', 'oi', 'ow', 'aw', 'au']
@@ -20,28 +22,28 @@ class syllable:
         self.e2 = Entry()
         self.e2.place(x=220, y=150)
 
-
-
     def countSyllable(self):
-
-        if len(self.e2.get()) == 0:
-            count = 0
-            word = self.e1.get()
-            word = word.lower()
-            for letter in word:
-                if letter in vowels:
-                    count += 1  # determine if the word has vowels
-
-            first = count - self.FirstRule(count, word)
-            second = count - self.SecondRule(count, word)
-            third = count - self.thirdRule(count, word)
-            last = count - self.lastRule(count, word)
-
-            total = count - (first + second + third + last)
-            self.e2.insert(END, str(total))
-
+        if not self.e1.get().isalpha():
+            tkinter.messagebox.showerror('Error', 'Alphabet only!')
         else:
-            self.e2.delete(0, END)
+            if len(self.e2.get()) == 0:
+                count = 0
+                word = self.e1.get()
+                word = word.lower()
+                for letter in word:
+                    if letter in vowels:
+                        count += 1  # determine if the word has vowels
+
+                first = count - self.FirstRule(count, word)
+                second = count - self.SecondRule(count, word)
+                third = count - self.thirdRule(count, word)
+                last = count - self.lastRule(count, word)
+
+                total = count - (first + second + third + last)
+                self.e2.insert(END, str(total))
+
+            else:
+                self.e2.delete(0, END)
 
 
     @staticmethod
@@ -114,6 +116,12 @@ class syllable:
             if sound in word:  # checking if the element is in the word
                 count -= 1
         return count
+
+
+
+
+
+
 
 
 
