@@ -63,7 +63,7 @@ def SecondRule(num, word):
                 # if a vowel is on either side of 'y'
                 num -= 1
 
-    print('count --> ', num)
+    # print('count --> ', num)
     thirdRule(num, word)
 
 
@@ -86,14 +86,14 @@ def thirdRule(num, word):
             print("index of 'es' is ", substrIndex)
             if substrIndex == len(word) - 2:
                 # ^^ checks if the substring is in the end
-                print('goes into this conditional')
+                # print('goes into this conditional')
 
                 for i in range(substrIndex - 1, substrIndex - 4, -1):
                     # ^^ checks three spaces before the substring
 
                     if word[i] in vowels:  # if the char is a vowel
                         num -= 1  # >> decrements the vowel count
-    print('The count after this rule is: ', num)
+    # print('The count after this rule is: ', num)
 
     lastRule(num, word)
 
