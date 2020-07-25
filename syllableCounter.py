@@ -98,7 +98,6 @@ def thirdRule(num, word):
     lastRule(num, word)
 
 
-
 def lastRule(num, word):
     # this rule is intended to find if there are any two vowel sounds
     for sound in twoVowelSounds:  # iterating over the list
@@ -108,12 +107,11 @@ def lastRule(num, word):
     print('This is the final count ', num)
 
 
+# loop allows for the question to be posed again 
 while True:
     question = input("Enter a word please : ")
 
-    if countVowels(question):
+    if countVowels(question):  # if the function raises an exception the loop will be breaked 
         break
     else:
-        time.sleep(2)
         continue
-
