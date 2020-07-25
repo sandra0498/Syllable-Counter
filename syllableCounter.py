@@ -107,11 +107,11 @@ def lastRule(num, word):
     print('This is the final count ', num)
 
 
-# loop allows for the question to be posed again 
+# loop allows for the question to be posed again
 while True:
     question = input("Enter a word please : ")
 
-    if countVowels(question):  # if the function raises an exception the loop will be breaked 
+    if countVowels(question):  # if the function raises an exception the loop will be broken
         break
     else:
         continue
