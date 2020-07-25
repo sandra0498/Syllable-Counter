@@ -1,5 +1,3 @@
-import time
-
 vowels = ['a', 'e', 'i', 'o', 'u', 'y']
 twoVowelSounds = ['ae', 'ee', 'oa', 'oo', 'ou', 'oi', 'ow', 'aw', 'au']
 
