@@ -1,3 +1,5 @@
+import time
+
 vowels = ['a', 'e', 'i', 'o', 'u', 'y']
 twoVowelSounds = ['ae', 'ee', 'oa', 'oo', 'ou', 'oi', 'ow', 'aw', 'au']
 
@@ -15,11 +17,12 @@ def countVowels(question):
                 if letter in vowels:
                     amountofvowels += 1
 
-
             FirstRule(amountofvowels, question)
+            return True
             # print('this is the amount of vowels ', amountofvowels)
     except TypeError as te:
         print(te)
+        return False
 
 
 def FirstRule(num, word):  # passing in the num of vowels and the word itself as arguments
@@ -105,5 +108,12 @@ def lastRule(num, word):
     print('This is the final count ', num)
 
 
-question = input("Enter a word please : ")
-countVowels(question)
+while True:
+    question = input("Enter a word please : ")
+
+    if countVowels(question):
+        break
+    else:
+        time.sleep(2)
+        continue
+
